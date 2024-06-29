@@ -7,30 +7,34 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="add-new-task">
-      <form id="new-task" class="new-task">
-        <label>Enter Task</label>
-        <input type="text" placeholder="Enter Task" name="details" />
-        <label>Due</label>
-        <input type="date" placeholder="Select Due time" name="due" />
-        <button type="submit" value="add">Add</button>
-      </form>
+    <div class="container">
+      <div class="header">
+        <h1>To Do App</h1>
+        <div class="add-new-task">
+          <form id="new-task" class="new-task">
+            <label>Enter Task</label>
+            <input type="text" placeholder="Enter Task" name="details" />
+            <label>Due</label>
+            <input type="date" placeholder="Select Due time" name="due" />
+            <button type="submit" value="add">Add</button>
+          </form>
+        </div>
+        <div class="filter">
+          <label>Filter</label>
+          <select id="filter">
+            <option value="none">None</option>
+            <option value="done">Done</option>
+            <option value="due">Due</option>
+          </select>
+        </div>
+        <div class="clear">
+          <button id="clear-taskbar">Remove All</button>
+        </div>
+      </div>
+      <div class="task-list" id="task-list">
+        <ul></ul>
+      </div>
     </div>
-    <div class="filter">
-      <label>filter</label>
-      <select  id="filter">
-        <option value="none">none</option>
-        <option value="done">done</option>
-        <option value="due">due</option>
-      </select>
-    </div>
-    <div class="clear">
-      <button id="clear-taskbar">Remove All</button>
-    </div>
-    <div class="task-list" id="task-list">
-      <ul></ul>
-    </div>
-
     <script src="index.js"></script>
   </body>
 </html>

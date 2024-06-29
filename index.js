@@ -60,35 +60,19 @@ function FetchTask(list) {
   if (list) {
     list.forEach((task) => {
       let taskEl = document.createElement("li");
-      if (task.done) {
-        taskEl.innerHTML = `
-        <div>
-            <span name="details" style="text-decoration: line-through;">
-            ${task.details}
-            </span>
-            <br />
-            <span name="duetime">
-            ${task.due}
-            </span>
-            </div>
-            <button id="done">&#10004;</button>
-            <button id="remove">&#10006;</button>
-        `;
-      } else {
-        taskEl.innerHTML = `
-        <div>
-        <span name="details">
-        ${task.details}
+      taskEl.innerHTML = `
+      <div>
+        <span name="details" ${task.done ? 'style="text-decoration: line-through;"' : ''}>
+          ${task.details}
         </span>
         <br />
         <span name="duetime">
-        ${task.due}
+          ${task.due}
         </span>
-        </div>
-        <button id="done">&#10004;</button>
-        <button id="remove">&#10006;</button>
-        `;
-      }
+      </div>
+      <button id="done">&#10004;</button>
+      <button id="remove">&#10006;</button>
+    `;
       taskListEl.append(taskEl);
     });
   }
@@ -98,8 +82,8 @@ function FetchTask(list) {
 
 removeAllTaskBtn.addEventListener("click", () => {
   localStorage.clear();
-  let newList = JSON.parse(localStorage.getItem("taskList"));
-  FetchTask(newList);
+//   let newList = JSON.parse(localStorage.getItem("taskList"));
+  FetchTask([]);
 });
 
 // updating the stutus of task
